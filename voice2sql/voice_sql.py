@@ -7,17 +7,17 @@ import threading
 import speech_recognition as sr
 import time
 
-# === Console Logger ===
+
 def log(message):
     print(message)
 
-# Gemini API config
-GEMINI_API_KEY = "AIzaSyDHYLmJVPAPV9hj722jgSWgsEMg3EqU1R0"
+
+GEMINI_API_KEY = "Configure your own API key for security reasons"
 api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
 
 SUPPORTED_ENGINES = ['sqlite', 'mysql', 'postgresql']
 
-# === Voice Input ===
+
 def get_voice_input():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -33,7 +33,7 @@ def get_voice_input():
         log(f"Sorry, could'nt fetch your vocals (Too sweet): {e}")
     return None
 
-# === Gemini Conversion ===
+
 def convert_to_sql_gemini(nl_query, db_type):
     prompt = f"""
 Convert the following natural language command into a valid SQL query for a {db_type} database.
@@ -61,7 +61,7 @@ Command: {nl_query}
         log(f"Bot crashed! {response.status_code}: {response.text}")
     return None
 
-# === Execute SQL ===
+
 def connect_and_execute_sql(db_type, db_config, sql_query):
     conn = None
     cursor = None
@@ -91,7 +91,7 @@ def connect_and_execute_sql(db_type, db_config, sql_query):
         cursor = conn.cursor()
         cursor.execute(sql_query)
 
-        if cursor.description:  # SELECT-like query
+        if cursor.description:  
             rows = cursor.fetchall()
             log("Results:")
             for row in rows:
@@ -108,7 +108,6 @@ def connect_and_execute_sql(db_type, db_config, sql_query):
         if conn:
             conn.close()
 
-# === DB Config ===
 def get_db_config(db_type):
     if db_type == "sqlite":
         filename = input("Enter SQLite database filename (e.g., data.db): ")
@@ -128,7 +127,6 @@ def get_db_config(db_type):
             'database': database
         }
 
-# === Main Loop ===
 def run_main():
     db_type = input("Enter DB type (sqlite/mysql/postgresql): ").strip().lower()
     if db_type not in SUPPORTED_ENGINES:
@@ -161,3 +159,4 @@ def run_main():
         elif confirm == 'q':
             log("Goodbye Mate!")
             break
+
