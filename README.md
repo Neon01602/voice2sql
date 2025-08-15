@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 Example `requirements.txt`:
 
-
+```bash
 requests
 SpeechRecognition
 pyaudio
