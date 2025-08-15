@@ -20,7 +20,7 @@ Voice2SQL is a Python-based command-line tool that converts spoken natural langu
 ```bash
 git clone https://github.com/yourusername/voice2sql.git
 cd voice2sql
-
+```
 
 ### 2. Install dependencies
 
@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 Example `requirements.txt`:
 
-```
+
 requests
 SpeechRecognition
 pyaudio
