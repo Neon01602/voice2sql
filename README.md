@@ -1,8 +1,8 @@
-Got it — here’s your **plain-text, no-emoji, compiler-friendly README** for the **Voice2SQL** project.
 
----
 
-````markdown
+
+
+
 # Voice2SQL — Natural Language to SQL with Gemini API
 
 Voice2SQL is a Python-based command-line tool that converts spoken natural language queries into executable SQL statements using Google's Gemini API, and runs them directly on your database (SQLite, MySQL, or PostgreSQL).
@@ -20,7 +20,7 @@ Voice2SQL is a Python-based command-line tool that converts spoken natural langu
 ```bash
 git clone https://github.com/yourusername/voice2sql.git
 cd voice2sql
-````
+
 
 ### 2. Install dependencies
 
